@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiDuel: Icons Edition</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pop {
+      0% { transform: scale(0.96); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop { animation: pop 0.2s ease-out forwards; }
+    .tab-active {
+      background-color: rgb(245 158 11);
+      color: rgb(15 23 42);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans p-3 sm:p-5 select-none min-h-screen flex flex-col justify-center">
+  <div class="max-w-xl mx-auto text-center w-full">
+    
+    <div class="mb-3">
+      <h1 class="text-3xl font-black text-amber-400">⚔️ WikiDuel: Icons</h1>
+      <p class="text-xs text-slate-400 mt-0.5">Which figure has a higher Wikipedia footprint & citation depth?</p>
+      
+      <div class="mt-2 inline-flex items-center gap-4 bg-slate-900 border border-slate-800 px-4 py-1 rounded-full text-xs font-semibold">
+        <span>Streak: <b id="streak" class="text-emerald-400">0</b></span>
+        <span class="text-slate-700">|</span>
+        <span>Best: <b id="best" class="text-amber-400">0</b></span>
+      </div>
+    </div>
+
+    <!-- Category Selector Tabs -->
+    <div class="flex justify-center flex-wrap gap-1.5 mb-4">
+      <button onclick="selectCategory('All', this)" class="cat-btn tab-active px-3 py-1 rounded-lg text-xs transition">🔥 All</button>
+      <button onclick="selectCategory('Cricket', this)" class="cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition">🏏 Cricket</button>
+      <button onclick="selectCategory('Football', this)" class="cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition">⚽ Football</button>
+      <button onclick="selectCategory('Cinema', this)" class="cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition">🎬 Cinema</button>
+      <button onclick="selectCategory('Science & Tech', this)" class="cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition">🔬 Tech</button>
+    </div>
+
+    <!-- Arena Cards -->
+    <div class="grid grid-cols-2 gap-3 mb-3">
+      
+      <!-- Card A -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col items-center justify-between shadow min-h-[340px]">
+        <div class="w-full flex flex-col items-center">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden bg-slate-800 mb-2">
+            <img id="img-a" class="w-full h-full object-cover" src="" alt="" />
+          </div>
+          <span id="cat-a" class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 mb-1"></span>
+          <h2 id="name-a" class="text-base font-bold text-white leading-tight"></h2>
+          <p id="desc-a" class="text-[11px] text-slate-400 mt-1 line-clamp-2"></p>
+        </div>
+        
+        <div class="w-full my-1">
+          <p class="text-[10px] uppercase tracking-wider text-slate-500">Citations & Depth</p>
+          <div id="val-a" class="text-3xl font-black text-amber-400"></div>
+        </div>
+
+        <span id="qid-a" class="text-[9px] text-slate-600 font-mono"></span>
+      </div>
+
+      <!-- Card B -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col items-center justify-between shadow min-h-[340px]">
+        <div class="w-full flex flex-col items-center">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden bg-slate-800 mb-2">
+            <img id="img-b" class="w-full h-full object-cover" src="" alt="" />
+          </div>
+          <span id="cat-b" class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 mb-1"></span>
+          <h2 id="name-b" class="text-base font-bold text-white leading-tight"></h2>
+          <p id="desc-b" class="text-[11px] text-slate-400 mt-1 line-clamp-2"></p>
+        </div>
+
+        <div class="w-full my-1">
+          <p class="text-[10px] uppercase tracking-wider text-slate-500">Citations & Depth</p>
+          <div id="val-b" class="text-3xl font-black text-slate-500">❓</div>
+        </div>
+
+        <!-- Buttons -->
+        <div id="controls" class="w-full flex gap-1.5">
+          <button onclick="makeGuess(true)" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 rounded-lg text-xs transition active:scale-95">
+            ▲ Higher
+          </button>
+          <button onclick="makeGuess(false)" class="flex-1 bg-rose-600 hover:bg-rose-500 text-white font-bold py-1.5 rounded-lg text-xs transition active:scale-95">
+            ▼ Lower
+          </button>
+        </div>
+
+        <span id="qid-b" class="text-[9px] text-slate-600 font-mono"></span>
+      </div>
+
+    </div>
+
+    <div id="status-msg" class="h-5 text-xs font-semibold"></div>
+  </div>
+
+  <script>
+    let allCards = [];
+    let activeDeck = [];
+    let streak = 0, best = 0;
+    let cardA = null, cardB = null;
+
+    // Load data from the exported JSON file
+    fetch('./wiki_duel_cards.json')
+      .then(res => res.json())
+      .then(data => {
+        allCards = data;
+        activeDeck = [...allCards];
+        renderRound();
+      })
+      .catch(err => console.error("Error loading cards:", err));
+
+    function selectCategory(cat, btn) {
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.className = "cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition";
+      });
+      btn.className = "cat-btn tab-active px-3 py-1 rounded-lg text-xs transition";
+
+      if (cat === 'All') {
+        activeDeck = [...allCards];
+      } else {
+        activeDeck = allCards.filter(c => c.category === cat);
+      }
+      cardA = null;
+      renderRound();
+    }
+
+    function pickCard(excludeId) {
+      const pool = activeDeck.filter(c => c.id !== excludeId);
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    function renderRound() {
+      if (!activeDeck.length) return;
+
+      document.getElementById('status-msg').innerText = "";
+      document.getElementById('val-b').innerText = "❓";
+      document.getElementById('val-b').className = "text-3xl font-black text-slate-500";
+      document.getElementById('controls').style.display = "flex";
+
+      if (!cardA) cardA = pickCard(null);
+      cardB = pickCard(cardA.id);
+
+      // Card A
+      document.getElementById('img-a').src = cardA.image;
+      document.getElementById('name-a').innerText = cardA.name;
+      document.getElementById('desc-a').innerText = cardA.description || "";
+      document.getElementById('cat-a').innerText = cardA.category;
+      document.getElementById('val-a').innerText = cardA.value;
+      document.getElementById('qid-a').innerText = "ID: " + cardA.id;
+
+      // Card B
+      document.getElementById('img-b').src = cardB.image;
+      document.getElementById('name-b').innerText = cardB.name;
+      document.getElementById('desc-b').innerText = cardB.description || "";
+      document.getElementById('cat-b').innerText = cardB.category;
+      document.getElementById('qid-b').innerText = "ID: " + cardB.id;
+    }
+
+    function makeGuess(isHigher) {
+      const isCorrect = isHigher ? (cardB.value >= cardA.value) : (cardB.value <= cardA.value);
+      document.getElementById('controls').style.display = "none";
+      const bVal = document.getElementById('val-b');
+      bVal.innerText = cardB.value;
+
+      if (isCorrect) {
+        streak++;
+        if (streak > best) best = streak;
+        bVal.className = "text-3xl font-black text-emerald-400 animate-pop";
+        document.getElementById('status-msg').innerHTML = "<span class='text-emerald-400'>✓ Correct! Next matchup...</span>";
+        setTimeout(() => {
+          cardA = cardB;
+          renderRound();
+        }, 1100);
+      } else {
+        streak = 0;
+        bVal.className = "text-3xl font-black text-rose-500 animate-pop";
+        document.getElementById('status-msg').innerHTML = "<span class='text-rose-500'>✗ Incorrect! Resetting streak.</span>";
+        setTimeout(() => {
+          cardA = null;
+          renderRound();
+        }, 1500);
+      }
+
+      document.getElementById('streak').innerText = streak;
+      document.getElementById('best').innerText = best;
+    }
+  </script>
+</body>
+</html>
