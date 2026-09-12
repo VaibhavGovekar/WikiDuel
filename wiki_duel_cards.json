@@ -3,19 +3,21 @@
     "id": "Q5613",
     "name": "Virat Kohli",
     "category": "Cricket",
-    "description": "Indian cricketer & former captain",
+    "description": "Indian international cricketer and former captain",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 520,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Virat_Kohli_during_the_India_vs_Australia_4th_Test_match_at_Narendra_Modi_Stadium.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Virat_Kohli_during_the_India_vs_Australia_4th_Test_match_at_Narendra_Modi_Stadium.jpg",
+    "citations_gist": "Over 350+ ESPN Cricinfo and ICC scorecards, extensive sections on 80 international centuries and captaincy tenure."
   },
   {
     "id": "Q193478",
     "name": "Sachin Tendulkar",
     "category": "Cricket",
-    "description": "100 International centuries",
+    "description": "100 International centuries & Bharat Ratna",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 610,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Sachin_Tendulkar_at_MRF_Promotion_Event.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Sachin_Tendulkar_at_MRF_Promotion_Event.jpg",
+    "citations_gist": "Wisden archives spanning 4 decades (1989-2013), Bharat Ratna gazettes, and separate tour-by-tour subsections."
   },
   {
     "id": "Q352011",
@@ -24,7 +26,8 @@
     "description": "3x ICC trophy winning captain",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 480,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/MS_Dhoni_in_2019.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/MS_Dhoni_in_2019.jpg",
+    "citations_gist": "Citations documenting 3 ICC tournament finals, IPL championships, and Indian military honorary ranks."
   },
   {
     "id": "Q3523249",
@@ -33,34 +36,8 @@
     "description": "Captain of Indian national team",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 440,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rohit_Sharma_during_the_2023_Cricket_World_Cup.jpg"
-  },
-  {
-    "id": "Q335022",
-    "name": "AB de Villiers",
-    "category": "Cricket",
-    "description": "South African batting legend",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 390,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/AB_de_Villiers_%28cropped%29.jpg"
-  },
-  {
-    "id": "Q16223011",
-    "name": "Jasprit Bumrah",
-    "category": "Cricket",
-    "description": "Pace bowler for India",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 320,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Jasprit_Bumrah_in_2023.jpg"
-  },
-  {
-    "id": "Q11571",
-    "name": "Cristiano Ronaldo",
-    "category": "Football",
-    "description": "5x Ballon d'Or & 900+ career goals",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 720,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Rohit_Sharma_during_the_2023_Cricket_World_Cup.jpg",
+    "citations_gist": "Extensive match citations for 3 double ODI centuries and 5 IPL captaincy title victories."
   },
   {
     "id": "Q615",
@@ -69,70 +46,38 @@
     "description": "8x Ballon d'Or & World Cup Champion",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 740,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+    "citations_gist": "2022 World Cup journalistic citations, 8 France Football dossiers, and match-by-match international archives."
   },
   {
-    "id": "Q1424",
-    "name": "Neymar",
+    "id": "Q11571",
+    "name": "Cristiano Ronaldo",
     "category": "Football",
-    "description": "Brazil all-time top goalscorer",
+    "description": "5x Ballon d'Or & 900+ career goals",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 560,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Bra-Cos_%281%29_%28cropped%29.jpg"
+    "value": 720,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg",
+    "citations_gist": "Portuguese FPF & UEFA dossiers tracking 130+ international goals and multi-league transfer records."
+  },
+  {
+    "id": "Q1426",
+    "name": "Pelé",
+    "category": "Football",
+    "description": "3x World Cup Champion & FIFA Player of Century",
+    "metric_name": "Wikipedia Citations & Depth",
+    "value": 650,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Pele_by_John_Mathew_Smith_%28cropped%29.jpg",
+    "citations_gist": "Historical FIFA archives from 1958-1970 World Cups and Brazilian government decree citations naming him a national treasure."
   },
   {
     "id": "Q10452",
-    "name": "Kylian Mbapp\u00e9",
+    "name": "Kylian Mbappé",
     "category": "Football",
     "description": "World Cup Golden Boot winner",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 490,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/57/2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93129_%28cropped%29.jpg"
-  },
-  {
-    "id": "Q1426",
-    "name": "Pel\u00e9",
-    "category": "Football",
-    "description": "3x World Cup Champion",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 650,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Pele_by_John_Mathew_Smith_%28cropped%29.jpg"
-  },
-  {
-    "id": "Q28779832",
-    "name": "Erling Haaland",
-    "category": "Football",
-    "description": "Manchester City striker",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 380,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Erling_Haaland_2023_%28cropped-v2%29.jpg"
-  },
-  {
-    "id": "Q56018",
-    "name": "Shah Rukh Khan",
-    "category": "Cinema",
-    "description": "Bollywood icon & producer",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 590,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_book_25_Years_Of_A_Life_Enriched.jpg"
-  },
-  {
-    "id": "Q95019",
-    "name": "Christopher Nolan",
-    "category": "Cinema",
-    "description": "Director of Oppenheimer & Inception",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 540,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Christopher_Nolan_Cannes_2018.jpg/800px-Christopher_Nolan_Cannes_2018.jpg"
-  },
-  {
-    "id": "Q226131",
-    "name": "Robert Downey Jr.",
-    "category": "Cinema",
-    "description": "Iron Man & Academy Award winner",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 580,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/57/2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93129_%28cropped%29.jpg",
+    "citations_gist": "2018 and 2022 World Cup finals documentation, Ligue 1 scoring logs, and high-profile Real Madrid transfer reports."
   },
   {
     "id": "Q38111",
@@ -141,34 +86,38 @@
     "description": "Academy Award winning actor",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 620,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Leonardo_Dicaprio_Cannes_2019.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Leonardo_Dicaprio_Cannes_2019.jpg",
+    "citations_gist": "Hollywood trade citations (Variety, Box Office Mojo) across 30 major films and UN environmental activism archives."
   },
   {
-    "id": "Q9570",
-    "name": "Amitabh Bachchan",
+    "id": "Q56018",
+    "name": "Shah Rukh Khan",
     "category": "Cinema",
-    "description": "Legend of Indian cinema",
+    "description": "Bollywood icon & producer",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 570,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Amitabh_Bachchan_at_an_event.jpg"
+    "value": 590,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_book_25_Years_Of_A_Life_Enriched.jpg",
+    "citations_gist": "15 Filmfare award records, box office gross citations, and international academic papers on Bollywood soft power."
   },
   {
-    "id": "Q37079",
-    "name": "Tom Cruise",
+    "id": "Q95019",
+    "name": "Christopher Nolan",
     "category": "Cinema",
-    "description": "Mission: Impossible & Top Gun star",
+    "description": "Director of Oppenheimer & Inception",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 605,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Tom_Cruise_by_Gage_Skidmore_2.jpg"
+    "value": 540,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Christopher_Nolan_Cannes_2018.jpg/800px-Christopher_Nolan_Cannes_2018.jpg",
+    "citations_gist": "Technical cinematography journals on IMAX usage, BAFTA/Academy dossiers, and distinct film-by-film structural pages."
   },
   {
-    "id": "Q317521",
-    "name": "Elon Musk",
-    "category": "Science & Tech",
-    "description": "CEO of Tesla & SpaceX",
+    "id": "Q226131",
+    "name": "Robert Downey Jr.",
+    "category": "Cinema",
+    "description": "Iron Man & Academy Award winner",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 760,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+    "value": 580,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg",
+    "citations_gist": "Marvel Cinematic Universe box office breakdowns and retrospective citations on his Oppenheimer Oscar campaign."
   },
   {
     "id": "Q937",
@@ -177,25 +126,18 @@
     "description": "Father of General Relativity",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 790,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg",
+    "citations_gist": "Academic citations from Princeton University Press archives, 1921 Nobel Prize papers, and Manhattan Project records."
   },
   {
-    "id": "Q19837",
-    "name": "Steve Jobs",
+    "id": "Q317521",
+    "name": "Elon Musk",
     "category": "Science & Tech",
-    "description": "Co-founder of Apple Inc.",
+    "description": "CEO of Tesla & SpaceX",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 680,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg"
-  },
-  {
-    "id": "Q5284",
-    "name": "Bill Gates",
-    "category": "Science & Tech",
-    "description": "Co-founder of Microsoft",
-    "metric_name": "Wikipedia Citations & Depth",
-    "value": 710,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Bill_Gates_2017_%28cropped%29.jpg"
+    "value": 760,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg",
+    "citations_gist": "Massive volume of SEC financial filings, NASA commercial launch contracts, and acquisition news references."
   },
   {
     "id": "Q935",
@@ -204,15 +146,17 @@
     "description": "Laws of motion & gravitation",
     "metric_name": "Wikipedia Citations & Depth",
     "value": 730,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg",
+    "citations_gist": "Royal Society 17th-century manuscripts, documentation of the Principia Mathematica, and Master of the Mint records."
   },
   {
-    "id": "Q17466548",
-    "name": "Sundar Pichai",
+    "id": "Q19837",
+    "name": "Steve Jobs",
     "category": "Science & Tech",
-    "description": "CEO of Alphabet and Google",
+    "description": "Co-founder of Apple Inc.",
     "metric_name": "Wikipedia Citations & Depth",
-    "value": 420,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Sundar_pichai.png"
+    "value": 680,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg",
+    "citations_gist": "Patent filings for Apple keynotes, Walter Isaacson biographical records, and Pixar corporate founding histories."
   }
 ]
