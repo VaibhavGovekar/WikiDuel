@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @keyframes pop {
-      0% { transform: scale(0.95); opacity: 0; }
+      0% { transform: scale(0.96); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
     @keyframes shake {
@@ -16,11 +16,11 @@
       40%, 80% { transform: translateX(6px); }
     }
     @keyframes pulseGlow {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-      70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 14px rgba(16, 185, 129, 0); }
       100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-    .animate-pop { animation: pop 0.25s ease-out forwards; }
+    .animate-pop { animation: pop 0.22s ease-out forwards; }
     .animate-shake { animation: shake 0.35s ease-in-out; }
     .card-success { border-color: #10b981 !important; animation: pulseGlow 0.6s ease-out; }
     .card-fail { border-color: #f43f5e !important; }
@@ -34,7 +34,7 @@
 <body class="bg-slate-950 text-slate-100 font-sans p-3 sm:p-5 select-none min-h-screen flex flex-col justify-center">
   <div class="max-w-xl mx-auto text-center w-full">
     
-    <!-- Title & Info Trigger -->
+    <!-- Title & Explanation -->
     <div class="mb-3">
       <div class="flex items-center justify-center gap-1.5 mb-1">
         <h1 class="text-3xl font-black text-amber-400">⚔️ WikiDuel: Icons</h1>
@@ -42,7 +42,7 @@
           ℹ️
         </button>
       </div>
-      <p class="text-xs text-slate-400">Which figure has a greater verified Wikipedia footprint and citations?</p>
+      <p class="text-xs text-slate-400">Which icon has more verified citations & documented career sections?</p>
       
       <!-- Scoreboard -->
       <div class="mt-2 inline-flex items-center gap-4 bg-slate-900 border border-slate-800 px-4 py-1 rounded-full text-xs font-semibold">
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <!-- Category Selector Tabs -->
+    <!-- Category Tabs -->
     <div class="flex justify-center flex-wrap gap-1.5 mb-4">
       <button onclick="selectCategory('All', this)" class="cat-btn tab-active px-3 py-1 rounded-lg text-xs transition">🔥 All</button>
       <button onclick="selectCategory('Cricket', this)" class="cat-btn bg-slate-900 text-slate-300 border border-slate-800 px-3 py-1 rounded-lg text-xs hover:bg-slate-800 transition">🏏 Cricket</button>
@@ -64,7 +64,7 @@
     <!-- Arena Cards -->
     <div class="grid grid-cols-2 gap-3 mb-3">
       
-      <!-- Card A (Baseline) -->
+      <!-- Card A -->
       <div id="card-a-box" class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col items-center justify-between shadow min-h-[350px] transition-all duration-200">
         <div class="w-full flex flex-col items-center">
           <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden bg-slate-800 mb-2">
@@ -83,7 +83,7 @@
         <span id="qid-a" class="text-[9px] text-slate-600 font-mono"></span>
       </div>
 
-      <!-- Card B (Target) -->
+      <!-- Card B -->
       <div id="card-b-box" class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col items-center justify-between shadow min-h-[350px] transition-all duration-200">
         <div class="w-full flex flex-col items-center">
           <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden bg-slate-800 mb-2">
@@ -99,7 +99,6 @@
           <div id="val-b" class="text-3xl font-black text-slate-500">❓</div>
         </div>
 
-        <!-- Higher / Lower Buttons -->
         <div id="controls" class="w-full flex gap-1.5">
           <button onclick="makeGuess(true)" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 rounded-lg text-xs transition active:scale-95 shadow">
             ▲ Higher
@@ -114,15 +113,18 @@
 
     </div>
 
-    <!-- Feedback & Post-Answer Breakdown Box -->
-    <div id="feedback-panel" class="min-h-[50px] flex flex-col items-center justify-center p-2 rounded-lg bg-slate-900/60 border border-slate-800/80 transition-all">
-      <div id="status-title" class="text-xs font-semibold text-slate-400">Make your call: Is Card B higher or lower?</div>
-      <div id="status-desc" class="text-[11px] text-slate-500 mt-0.5"></div>
+    <!-- Gist & Citation Breakdown Panel -->
+    <div id="feedback-panel" class="min-h-[70px] flex flex-col items-center justify-center p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 transition-all text-left">
+      <div id="status-title" class="text-xs font-semibold text-center text-slate-400">Make your pick: Is Card B higher or lower?</div>
+      <div id="citation-gist" class="hidden mt-1.5 w-full bg-slate-950/80 rounded-lg p-2 border border-slate-800/80 text-[11px] text-slate-300 leading-snug">
+        <span class="text-amber-400 font-bold block mb-0.5">📚 Why the winner leads:</span>
+        <span id="gist-text"></span>
+      </div>
     </div>
   </div>
 
   <!-- Score Explanation Modal -->
-  <div id="info-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+  <div id="info-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
     <div class="bg-slate-900 border border-slate-800 max-w-sm w-full p-5 rounded-2xl shadow-2xl text-left">
       <div class="flex justify-between items-center mb-3">
         <h3 class="text-base font-bold text-amber-400 flex items-center gap-1.5">
@@ -131,12 +133,12 @@
         <button onclick="toggleModal(false)" class="text-slate-400 hover:text-white text-sm">✕</button>
       </div>
       <p class="text-xs text-slate-300 leading-relaxed mb-3">
-        This metric is computed directly from the <b>Wikimedia Structured Content Parquet dataset</b> without arbitrary guessing.
+        Calculated directly from the <b>Wikimedia Structured Content Parquet dataset</b>:
       </p>
       <div class="space-y-2 text-[11px] text-slate-400 border-t border-slate-800 pt-3">
-        <p>• <b>Verified References:</b> Total primary citations backing the entity’s claims.</p>
-        <p>• <b>Section Depth:</b> Depth and volume of encyclopedic sections written on Wikipedia.</p>
-        <p>• <b>Infobox Structure:</b> Granular properties (birth, career stats, awards, lineage).</p>
+        <p>• <b>Verified References:</b> Formal secondary sources & archives cited per claim.</p>
+        <p>• <b>Section Depth:</b> Dedicated subsections documenting career phases.</p>
+        <p>• <b>Infobox Properties:</b> Structured data points (awards, caps, records).</p>
       </div>
       <div class="mt-4 pt-3 border-t border-slate-800 text-center">
         <button onclick="toggleModal(false)" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-1.5 rounded-lg text-xs transition">
@@ -195,8 +197,8 @@
       cardABox.classList.remove('card-success', 'card-fail', 'animate-shake');
       cardBBox.classList.remove('card-success', 'card-fail', 'animate-shake');
 
-      document.getElementById('status-title').innerHTML = "<span class='text-slate-400'>Make your call: Is Card B higher or lower?</span>";
-      document.getElementById('status-desc').innerText = "";
+      document.getElementById('status-title').innerHTML = "<span class='text-slate-400'>Make your pick: Is Card B higher or lower?</span>";
+      document.getElementById('citation-gist').classList.add('hidden');
       document.getElementById('val-b').innerText = "❓";
       document.getElementById('val-b').className = "text-3xl font-black text-slate-500";
       document.getElementById('controls').style.display = "flex";
@@ -230,6 +232,13 @@
       const cardBBox = document.getElementById('card-b-box');
       const diff = Math.abs(cardB.value - cardA.value);
       const comparisonWord = cardB.value >= cardA.value ? "higher" : "lower";
+      const winner = cardB.value >= cardA.value ? cardB : cardA;
+
+      // Reveal citation gist box
+      const gistBox = document.getElementById('citation-gist');
+      const gistText = document.getElementById('gist-text');
+      gistBox.classList.remove('hidden');
+      gistText.innerText = `${winner.name} (${winner.value} pts) leads because of: ${winner.citations_gist || "denser archival citations, career milestones, and multiple encyclopedic section write-ups."}`;
 
       if (isCorrect) {
         streak++;
@@ -237,27 +246,23 @@
         bVal.className = "text-3xl font-black text-emerald-400 animate-pop";
         cardBBox.classList.add('card-success');
 
-        document.getElementById('status-title').innerHTML = "<span class='text-emerald-400 font-bold'>✓ Correct Decision!</span>";
-        document.getElementById('status-desc').innerText = 
-          `${cardB.name} has a score of ${cardB.value} (${diff} pts ${comparisonWord} than ${cardA.name}) due to greater article depth & references.`;
+        document.getElementById('status-title').innerHTML = `<span class='text-emerald-400 font-bold'>✓ Correct! ${cardB.name} is ${diff} pts ${comparisonWord}.</span>`;
 
         setTimeout(() => {
           cardA = cardB;
           renderRound();
-        }, 1800);
+        }, 2500);
       } else {
         streak = 0;
         bVal.className = "text-3xl font-black text-rose-500 animate-pop";
         cardBBox.classList.add('card-fail', 'animate-shake');
 
-        document.getElementById('status-title').innerHTML = "<span class='text-rose-500 font-bold'>✗ Incorrect! Streak Reset.</span>";
-        document.getElementById('status-desc').innerText = 
-          `${cardB.name} actually scored ${cardB.value}, which is ${diff} pts ${comparisonWord} than ${cardA.name}.`;
+        document.getElementById('status-title').innerHTML = `<span class='text-rose-500 font-bold'>✗ Wrong! ${cardB.name} is actually ${diff} pts ${comparisonWord}.</span>`;
 
         setTimeout(() => {
           cardA = null;
           renderRound();
-        }, 2200);
+        }, 3000);
       }
 
       document.getElementById('streak').innerText = streak;
